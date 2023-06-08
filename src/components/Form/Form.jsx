@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { InputContainer, Label, InputStyle, Button } from './Form.styled.jsx';
-import { selectContacts } from 'redux/selectors.js';
-import { addContacts } from 'redux/operations.js';
+import { selectContacts } from 'redux/contacts/selectors.js';
+import { addContacts } from 'redux/contacts/operations.js';
 import PlusIcon from '@rsuite/icons/Plus';
 
 const Input = () => {

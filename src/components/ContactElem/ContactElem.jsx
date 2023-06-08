@@ -6,9 +6,9 @@ import {
   DeleteBtn,
 } from './ContactElem.styled.jsx';
 import { useDispatch } from 'react-redux';
-import { removeContacts } from 'redux/operations.js';
+import { removeContacts } from 'redux/contacts/operations.js';
 
-export const ContactElem = ({ id, name, number }) => {
+const ContactElem = ({ id, name, number }) => {
   const dispatch = useDispatch();
 
   const onRemove = () => dispatch(removeContacts(id));
@@ -29,3 +29,5 @@ ContactElem.propTypes = {
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
 };
+
+export default ContactElem;

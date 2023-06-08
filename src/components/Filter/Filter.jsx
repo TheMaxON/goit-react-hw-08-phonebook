@@ -1,9 +1,9 @@
 import { Label } from '../Form/Form.styled.jsx';
 import { InputStyle } from '../Form/Form.styled.jsx';
 import { useDispatch } from 'react-redux';
-import { changeFilter } from 'redux/contactsSlice';
+import { changeFilter } from 'redux/contacts/slice.js';
 
-export const Filter = () => {
+const Filter = () => {
   const dispatch = useDispatch();
 
   const onChange = e => {
@@ -22,3 +22,5 @@ export const Filter = () => {
     </Label>
   );
 };
+
+export default Filter;

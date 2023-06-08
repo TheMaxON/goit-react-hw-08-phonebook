@@ -1,9 +1,12 @@
-import { ContactElem } from '../ContactElem/ContactElem';
+import ContactElem from '../ContactElem/ContactElem';
 import { useSelector } from 'react-redux';
-import { selectFilteredContacts, selectIsLoading } from 'redux/selectors.js';
+import {
+  selectFilteredContacts,
+  selectIsLoading,
+} from 'redux/contacts/selectors.js';
 import { ContactsListStyle } from './ContactsList.styled.jsx';
 
-export const ContactsList = () => {
+const ContactsList = () => {
   const filteredContacts = useSelector(selectFilteredContacts);
   const isLoading = useSelector(selectIsLoading);
 
@@ -37,3 +40,5 @@ export const ContactsList = () => {
     </>
   );
 };
+
+export default ContactsList;

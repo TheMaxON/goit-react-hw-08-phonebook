@@ -1,42 +1,37 @@
-import Input from './Form/Form';
-import { useEffect } from 'react';
+import { useEffect, lazy } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectIsLoading, selectError } from 'redux/selectors';
-import { ContactsList } from './ContactsList/ContactsList';
-import { Filter } from './Filter/Filter';
-import { Section } from './Section/Section';
-import Loader from './Loader/Loader';
-import { fetchContacts } from 'redux/operations';
+import { Route, Routes } from 'react-router-dom';
+import { selectIsLoading, selectError } from 'redux/contacts/selectors';
+import { fetchContacts } from 'redux/contacts/operations';
+import Layout from './Layout';
+
+const Register = lazy(() => import('pages/Register'));
+const Login = lazy(() => import('pages/Login'));
+const Contacts = lazy(() => import('pages/Contacts'));
 
 const App = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchContacts());
+  // }, [dispatch]);
 
   if (error) return console.log('Error message: ', error);
 
   return (
     <>
-      <Section>
-        <h1>Phonebook</h1>
-        <Input />
-      </Section>
-      <Section>
-        <h2>Contacts</h2>
-        <Filter />
-        {!isLoading && error && (
-          <p>
-            An error has occurred. Try reloading the page or read more in
-            console.
-          </p>
-        )}
-        {isLoading && <Loader />}
-        {!error && <ContactsList />}
-      </Section>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Contacts />} />
+          <Route path="register" element={<Register />} />
+          <Route path="login" element={<Login />} />
+        </Route>
+        <Route path="*" element={<Layout />}>
+          <Route path="*" element={<Contacts />} />
+        </Route>
+      </Routes>
     </>
   );
 };

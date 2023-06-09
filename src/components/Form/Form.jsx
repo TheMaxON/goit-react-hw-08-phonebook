@@ -36,7 +36,7 @@ const Input = () => {
           contact.name.toLowerCase().trim() === contactName.toLowerCase().trim()
       )
     ) {
-      dispatch(addContacts({ name: contactName, phone: contactNumber }));
+      dispatch(addContacts({ name: contactName, number: contactNumber }));
     } else {
       alert(`${contactName} is already in contacts`);
     }
@@ -58,7 +58,7 @@ const Input = () => {
           value={contactName}
           placeholder="Type your name..."
           onChange={onChange}
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
@@ -71,7 +71,7 @@ const Input = () => {
           value={contactNumber}
           placeholder="Type your phone number..."
           onChange={onChange}
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />

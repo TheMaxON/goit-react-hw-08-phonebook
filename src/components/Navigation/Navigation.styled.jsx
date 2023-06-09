@@ -14,8 +14,17 @@ export const StyledAppBar = styled.header`
   gap: 20px;
 `;
 
+export const UserLogin = styled.p`
+  color: var(--color-text);
+  padding: 6px 14px;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: var(--color-additional);
+`;
+
 export const Nav = styled.div`
   display: flex;
+  align-items: center;
   gap: 20px;
 `;
 
@@ -26,7 +35,8 @@ export const NavBtnPrimary = styled(NavLink)`
   font-size: 16px;
   background-color: var(--color-accent);
 
-  &:hover {
+  &:hover,
+  &:active {
     text-decoration: none;
     color: var(--color-additional);
   }
@@ -38,7 +48,8 @@ export const NavBtn = styled(NavLink)`
   border-radius: 5px;
   font-size: 16px;
 
-  &:hover {
+  &:hover,
+  &:active {
     text-decoration: none;
     color: var(--color-text);
     background-color: var(--color-additional);
